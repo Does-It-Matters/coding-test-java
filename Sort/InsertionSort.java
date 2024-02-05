@@ -17,9 +17,25 @@ public class InsertionSort {
 
         for(int i: input) { System.out.println(i); }
     }
+
+    public static void exercise2(int[] input) {
+        for (int i = 1; i < input.length; i++) {
+            int key = input[i];
+            int sortLastI = i - 1;
+            int j = sortLastI;
+            while ( j > -1 && (input[j] > key) ) {
+                input[j+1] = input[j];
+                j--;
+            }
+            input[j+1] = key;
+
+        }
+
+        for(int i: input) { System.out.println(i); }
+    }
     
     public static void main(String[] args) {
         int[] input = { 1, 2, 10, 3, 7, 1, 5, 6, 4, 100, -1, 0 };
-        exercise(input);
+        exercise2(input);
     }
 }
