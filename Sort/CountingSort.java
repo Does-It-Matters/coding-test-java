@@ -7,13 +7,16 @@ public class CountingSort {
         }
 
         int j = 0;
-        for (int i = 0; i < 101; i++) {
-            for (; 0 < count[i]; --count[i], ++j) {
-                input[j] = i;
-            }
+        for (int i = 0; i < count.length -1; i++) {
+            count[i+1] += count[i];
         }
 
-        for (int e: input) {
+        int[] sort = new int[input.length];
+        for (int i = sort.length - 1; i >= 0; i--) {
+            sort[count[input[i]]-- - 1] = input[i];
+        }
+
+        for (int e: sort) {
             System.out.print(e + " ");
         }
     }
